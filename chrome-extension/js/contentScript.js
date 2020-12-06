@@ -27,13 +27,22 @@ for (let dropzone of dropzones){
 	parent.appendChild(fileNameLabel);
 }
 
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+		if (request.uploadAll){
 
-window.addEventListener('load', function() {
-
-	chrome.storage.local.get("files", ({files}) => {
-		for (let file of files){
-			callFunc("insertFile", 0, file);
+			let dropzonesNum = 0;
+			chrome.storage.local.get("files", ({files}) => {
+				for (let file of files){
+					for (dropzonesNum = 0; dropzonesNum < dropzones.length; dropzonesNum++){
+						const filePattern = dropzones[dropzonesNum].getAttribute("data-task-id");
+						if (file.name.startsWith(`ans-${filePattern}`)){
+							callFunc("insertFile", dropzonesNum, file);
+							break;
+						}
+					}
+				}
+			});
+			
 		}
 	});
-
-});
