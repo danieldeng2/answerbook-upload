@@ -9,6 +9,7 @@
 			"js": ["js/contentScript.js"]
 		}
 	],
+	"web_accessible_resources": ["js/inject.js"],
 	"background": {
 		"scripts": ["js/background.js"],
 		"persistent": false
