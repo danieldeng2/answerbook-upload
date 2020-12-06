@@ -20,11 +20,10 @@ let dropzones = document.querySelectorAll(".dropzone");
 for (let dropzone of dropzones){
 	const filePattern = dropzone.getAttribute("data-task-id");
 	const fileNameLabel = document.createElement("p");
-	const parent = dropzone.querySelector(".dz-message");
 
-	fileNameLabel.textContent = `Batch: ans-${filePattern}`;
+	fileNameLabel.textContent = `Batch filename: ans-${filePattern}`;
 	fileNameLabel.style.color = "blue";
-	parent.appendChild(fileNameLabel);
+	dropzone.parentNode.insertBefore(fileNameLabel, dropzone);
 }
 
 chrome.runtime.onMessage.addListener(
