@@ -1,4 +1,4 @@
-# In Progress: Answerbook Uploader
+# WIP: Answerbook Uploader
 The goad of this project is to combine technologies such as: 
 
  - [Web USB](https://developer.mozilla.org/en-US/docs/Web/API/USB)
