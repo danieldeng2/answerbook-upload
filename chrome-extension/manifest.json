@@ -3,8 +3,14 @@
 	"version": "1.0",
 	"description": "Batch upload for Imperial Answerbook exams. ",
 	"manifest_version": 2,
+	"content_scripts": [
+		{
+			"matches": ["http://127.0.0.1/*", "https://answerbook.doc.ic.ac.uk/*"],
+			"js": ["js/contentScript.js"]
+		}
+	],
 	"background": {
-		"scripts": ["background.js"],
+		"scripts": ["js/background.js"],
 		"persistent": false
 	},
 	"options_page": "options.html",
@@ -17,5 +23,5 @@
 	"icons": {
 		"64": "images/icon-64.png"
 	},
-	"permissions": ["http://127.0.0.1:5001/*", "activeTab", "declarativeContent", "storage"]
+	"permissions": ["activeTab", "declarativeContent", "storage"]
 }
