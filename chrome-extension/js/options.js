@@ -1,6 +1,6 @@
 const displayFiles = ({files}) => {
 	const root = document.querySelector("#root");
-	root.textContent = '';
+	root.textContent = "";
 	for (let file of files){
 		const fileName = document.createElement("p");
 		fileName.textContent = file.name;
@@ -30,7 +30,7 @@ fileInput.addEventListener('change', async () => {
 	
 	Promise.all(promises).then(filesData => {
 		chrome.storage.local.set({files: filesData}, () => {
-			console.log(filesData);
+			displayFiles({files: filesData});
 		});
 	});
 

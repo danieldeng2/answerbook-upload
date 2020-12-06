@@ -1,7 +1,6 @@
 let dropzones = document.querySelectorAll(".dropzone");
 
 function insertFile(dropzonesNum, file){
-	console.log(dropzonesNum);
   let blob = dataURItoBlob(file.dataURI);
   blob.lastModifiedDate = file.lastModifiedDate;
 	blob.name = file.name;

@@ -17,14 +17,15 @@ function callFunc(func, ...args) {
 
 
 let dropzones = document.querySelectorAll(".dropzone");
-let dataIDs = [];
 for (let dropzone of dropzones){
-	dataIDs.push(dropzone.getAttribute("data-task-id"));
-}
+	const filePattern = dropzone.getAttribute("data-task-id");
+	const fileNameLabel = document.createElement("p");
+	const parent = dropzone.querySelector(".dz-message");
 
-chrome.storage.local.set({dropzones: dataIDs}, function() {
-	console.log('dropzones saved.');
-});
+	fileNameLabel.textContent = `Batch: ans-${filePattern}`;
+	fileNameLabel.style.color = "blue";
+	parent.appendChild(fileNameLabel);
+}
 
 
 window.addEventListener('load', function() {
