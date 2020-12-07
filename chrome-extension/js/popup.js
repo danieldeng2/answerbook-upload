@@ -18,7 +18,7 @@ fileButton.addEventListener("click", () => {
     url: chrome.runtime.getURL("choosefile.html"),
     type: "popup"
   }, function(win) {
-    // win represents the Window object from windows API
+    win.document.querySelector("#file").click();
   });
 });
 

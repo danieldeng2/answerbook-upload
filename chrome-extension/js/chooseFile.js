@@ -31,6 +31,7 @@ fileInput.addEventListener('change', async () => {
 	Promise.all(promises).then(filesData => {
 		chrome.storage.local.set({files: filesData}, () => {
 			displayFiles({files: filesData});
+			window.close();
 		});
 	});
 
